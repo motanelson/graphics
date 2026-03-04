@@ -1,13 +1,20 @@
 import matplotlib.pyplot as plt
-from scipy import stats
+import numpy as np
 
 plt.style.use('dark_background')
 
-# Dados
-x = list(range(-10,10))
-y = [v + abs(v) for v in x]
+# Valores
+x = np.linspace(-10, 10, 200)
 
+# Parâmetros do sino
+A = 1        # altura
+mu = 0       # centro
+sigma = 2    # largura
 
-# Gráfico
+# Equação Gaussiana
+y = A * np.exp(-((x - mu)**2) / (2 * sigma**2))
+
 plt.scatter(x, y)
+plt.plot(x, y)
+plt.title("Curva em forma de sino (Gaussiana)")
 plt.show()
